@@ -1,19 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--LinearLayout druh layoutu. Vzdy by se mela definovat vyska, sirka a orientace-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
 <!--    V design casti je Palette a podle toho se da jednoduse urcit, jake views se daji pouzit. Napriklad ImageView, Button, TextView....-->
+<!--    match_parent (kopiruje sirku/vysku parenta) vs. wrap_content (stejne jak max-content)-->
+<!--    pripadne to muze byt dp (podonbe jako px), tzn. nastavim fixni velikost-->
+<!--    textSize by se mel psat vzdy v sp (scalabel pixels) pak je font umerne velky nastaveni fontu celeho telefonu-->
+<!--    By default sp je stejne velke jako dp (), ale je navic skalovatelne-->
+<!--    ellipsize nastavi tri tecky, pokud je text moc dlouhy (spolecne s lines) - zachova vysku-->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Todo list"
+        android:text="this is some long text this is some long text this is some long text this is some long textthis is some long text"
+        android:textSize="20sp"
+        android:ellipsize="end"
+        android:lines="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    horizontal = flex + row, vertical flex + column-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+<!--     layout_weight rozdeluje pomerove v radku itemy (tzn neco jako flex:row a width itemu)   -->
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:hint="Add Item"
+            android:layout_weight="1"
+            android:width="0dp"
+            />
+
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:hint="s"
+            android:layout_weight="1"
+            android:width="0dp"
+            />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/clickBtn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Klikni na me"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/clickNextActivity"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Aktivita 2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

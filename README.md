@@ -40,4 +40,8 @@
 #Activity stack
  - vicemene to jsou prekryvajici se layouty
  - pr. Kliknu na btn, ktery me presmeruje na dalsi screenu, na te kliknu jeste na jeden -> stack vypada: treti obrazovka - druha - prvni. Kdyz jdu zpet na druhou obrazovku (kliknu zpet), stack vypada: druha obrazovka - prvni
- - 
+
+#ViewBinding
+ - Abychom nemuseli hledat views pres findViewById
+ - Musim pridat buildFeatures a viewBinding v app/build.gradle
+ - tim si zpristupnim viewBinding v projektu
